@@ -4,9 +4,9 @@ import * as THREE from "three";
 export default function JellyFish() {
   const jellyFish = useGLTF("./jelly_fish_anim.glb");
   const animations = useAnimations(jellyFish.animations, jellyFish.scene);
+  const action = animations.actions.Beat;
 
   const modelClickHandler = (event) => {
-    const action = animations.actions.Beat;
     action.reset().play();
     action.setLoop(THREE.LoopOnce);
     action.clampWhenFinished = true;
